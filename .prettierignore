@@ -1,0 +1,17 @@
+**/dist/
+**/node_modules/
+tsconfig*.json
+tslint*.json
+**/imports/*
+**/*.test.ts
+**/*.yml
+**/*.yaml
+.vscode
+**/coverage/*
+**/*.html
+README.MD
+jest.config.js
+**/public/*
+**/tests/
+test.mjs
+**/nodejs/

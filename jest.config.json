@@ -1,0 +1,4 @@
+{
+  "testMatch": ["**/*.test.ts"],
+  "roots": ["<rootDir>/src"]
+}
