@@ -47,6 +47,21 @@ customswitch.on()
 customswitch.off()
 ```
 
+#### Button
+
+```js
+import { Button } from 'hass-jstomqtt'
+
+const customButton = new Button(
+  client,
+  "atestbutton",
+)
+
+customButton.press(() => {
+  console.log("Button Pressed")
+})
+```
+
 
 ## Todo
 
@@ -63,7 +78,7 @@ customswitch.off()
 - [x] Switch
 - [x] Binary sensor
 - [ ] Sensors
-- [ ] Button
+- [x] Button
 - [ ] Event
 - [ ] Light?
 

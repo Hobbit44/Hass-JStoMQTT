@@ -29,7 +29,6 @@ export type IHACommonConfig = {
   availabilityTemplate?: string
   availabilityTopic?: string
   device?: IHADevice
-  deviceClass?: string
   enabledByDefault?: boolean
   encoding?: string
   entityCategory?: string
@@ -40,16 +39,13 @@ export type IHACommonConfig = {
   objectId?: string
   payloadAvailable?: string
   payloadNotAvailable?: string
-  payloadOff?: string
-  payloadOn?: string
   qos?: number
-  stateTopic: string
   uniqueId?: string
-  valueTemplate?: string
 }
 
 export enum ClassTypes {
   SWITCH = "switch",
   BINARY_SENSOR = "binary_sensor",
+  BUTTON = "button",
 }
 

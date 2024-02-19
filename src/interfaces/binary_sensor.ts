@@ -37,7 +37,12 @@ export enum IBinarySensorTypes {
 }
 
 export interface IHABinarySensorConfig extends IHACommonConfig {
+  deviceClass?: IBinarySensorTypes
   expireAfter?: number
   forceUpdate?: boolean
   offDelay?: number
+  payloadOff?: string
+  payloadOn?: string
+  stateTopic: string
+  valueTemplate?: string
 }

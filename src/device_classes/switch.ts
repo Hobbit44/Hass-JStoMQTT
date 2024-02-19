@@ -1,6 +1,6 @@
 import { MqttClient } from "mqtt"
 import { Optional } from 'utility-types';
-import { Base } from "../base"
+import { Base } from "./base"
 import { IHASwitchConfig, ISwitchOptions } from "..//interfaces/switch"
 import { ClassTypes } from "../interfaces/common"
 
@@ -17,8 +17,8 @@ export class Switch extends Base {
       ClassTypes.SWITCH,
       {
         name,
-        deviceClass: "switch",
-        commandTopic: `jstomqtt/switch/${name}/set`,
+        commandTopic: `jstomqtt/${name}_jstomqtt/set`,
+        stateTopic: config.stateTopic || `jstomqtt/${name}_jstomqtt/state`,
         ...config,
       }
     )
@@ -42,6 +42,7 @@ export class Switch extends Base {
     on: () => {},
     off: () => {},
   }
+
   private handleState (msg: string): void {
     this.logger.debug(`Updating state to ${msg}`)
     if(msg == ISwitchOptions.ON) {
@@ -51,7 +52,7 @@ export class Switch extends Base {
     }
   }
 
-  protected setListener (msg: string): void {
+  private setListener (msg: string): void {
     if(msg == ISwitchOptions.ON) {
       try {
         this.handlers.on()
@@ -73,6 +74,15 @@ export class Switch extends Base {
         this.pushState(this.state.toString())
       }
     }
+  }
+  
+  private pushState (state: string): void { 
+    this.logger.debug(`Pushing state: ${state}`)
+    this.client.publish(
+      this.config.stateTopic, 
+      state,
+      { retain: true }
+    )
   }
 
   public on (handler: () => void): void {
