@@ -5,14 +5,9 @@ interface IHAAvailability {
   valueTemplate?: string;
 }
 
-interface IHAConnection {
-  type: string;
-  identifier: string;
-}
-
 interface IHADevice {
-  configurationUrl: string
-  connections?: IHAConnection[];
+  configurationUrl?: string
+  connections?: [string, string][];
   hwVersion?: string;
   identifiers?: string[];
   manufacturer?: string;
