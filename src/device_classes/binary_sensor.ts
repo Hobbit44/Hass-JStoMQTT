@@ -1,9 +1,11 @@
 import { MqttClient } from "mqtt"
+import { Optional } from 'utility-types';
 import { Base } from "../base"
 import { IHABinarySensorConfig, IBinarySensorOptions } from "../interfaces/binary_sensor"
 import { ClassTypes } from "../interfaces/common"
 
-export type IBinarySensorConfig = IHABinarySensorConfig
+export type IBinarySensorConfig = Optional<IHABinarySensorConfig, 'stateTopic'>
+
 
 export class BinarySensor extends Base {
   constructor(mqttClient: MqttClient, name: string, opts?: IBinarySensorConfig) {

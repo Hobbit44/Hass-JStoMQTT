@@ -3,8 +3,8 @@ import { Logger } from 'pino';
 import { logger } from "./utils/logger"
 import _ from "lodash";
 import { off } from "process";
-import { IBinarySensorConfig } from "./interfaces/binary_sensor";
-import { ISwitchConfig } from "./interfaces/switch";
+import { IBinarySensorConfig } from "./device_classes/binary_sensor";
+import { ISwitchConfig } from "./device_classes/switch";
 import { ClassTypes } from "./interfaces/common";
 
 interface IListeners {
