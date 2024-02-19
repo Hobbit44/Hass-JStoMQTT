@@ -52,21 +52,21 @@ customswitch.off()
 
 #### Tasks
 
-- [] CI
-- [] Docs
-  - [] API
-  - [] Deployment
-  - [] Development
+- [ ] CI
+- [ ] Docs
+  - [ ] API
+  - [ ] Deployment
+  - [ ] Development
 
 #### Entity types
 
 - [x] Switch
 - [x] Binary sensor
-- [] Sensors
-- [] Button
-- [] Event
-- [] Light?
+- [ ] Sensors
+- [ ] Button
+- [ ] Event
+- [ ] Light?
 
 #### Others
 
-- [] Device support
+- [ ] Device support
