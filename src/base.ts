@@ -15,17 +15,20 @@ type IBaseConfig = ISwitchConfig | IBinarySensorConfig
 
 export class Base {
   constructor(mqttClient, type: ClassTypes, config: IBaseConfig) {
-    const { name, deviceClass } = config
+    const { name } = config
     this.logger = logger.child({}, { msgPrefix: `[${name}] ` })
     this.client = mqttClient
     this.name = name
-    this.topic = `jstomqtt/${deviceClass}/${name}`
+    this.type = type
+
+    if(!config.uniqueId) config.uniqueId = `${name}_jstomqtt`
+    this.topic = `jstomqtt/${config.uniqueId}`
     if(!config.stateTopic) config.stateTopic = `${this.topic}/state`
     
-    if(!config.uniqueId) config.uniqueId = `${name}_jstomqtt`
     this.config = config
-    this.discoveryTopic = `homeassistant/${this.config.uniqueId}/${this.name}/config`
+    this.discoveryTopic = `homeassistant/${type}/${config.uniqueId}/config`
   }
+  protected type: ClassTypes
   protected logger: Logger
   protected client: MqttClient
   protected discoveryTopic: string
