@@ -1,4 +1,4 @@
-# Hass-JStoMQTT
+# HA-JStoMQTT
 
 This repository enables you to write Home Assistant entities in Javascript that can perform arbitrary operations or fetch statuses or values in a familiar language without having to use input booleans or additional helpers. 
 
