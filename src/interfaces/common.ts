@@ -1,3 +1,5 @@
+import { Required } from "utility-types";
+
 interface IHAAvailability {
   payloadAvailable?: string;
   payloadNotAvailable?: string;
@@ -5,11 +7,11 @@ interface IHAAvailability {
   valueTemplate?: string;
 }
 
-interface IHADevice {
+interface IHADeviceBase {
   configurationUrl?: string
-  connections?: [string, string][];
+  connections?: string[][];
   hwVersion?: string;
-  identifiers?: string[];
+  identifiers?: string | string[];
   manufacturer?: string;
   model?: string;
   name?: string;
@@ -17,6 +19,8 @@ interface IHADevice {
   swVersion?: string;
   viaDevice?: string;
 }
+
+type IHADevice = Required<IHADeviceBase, 'connections'> | Required<IHADeviceBase, 'identifiers'>;
 
 export type IHACommonConfig = {
   availablity?: IHAAvailability
