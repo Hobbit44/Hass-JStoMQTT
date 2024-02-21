@@ -63,6 +63,22 @@ customButton.press(() => {
 ```
 
 #### Devices
+
+```js
+import { Button, Switch } from 'hass-jstomqtt'
+
+const deviceConfig = {
+  name: "atestdevice",
+  identifiers: "atestdevice",
+}
+
+const customswitch = new Switch(client, "atestSwitch", {
+  device: deviceConfig,
+})
+
+const customButton = new Button(client, "atestbutton", {
+  device: deviceConfig,
+})
 ```
 
 
@@ -87,4 +103,4 @@ customButton.press(() => {
 
 #### Others
 
-- [ ] Device support
+- [x] Device support
