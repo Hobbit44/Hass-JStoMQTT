@@ -23,8 +23,8 @@ describe("Switch", () => {
       _.camelCase(expect.getState().currentTestName),
     )
     
-    const on = jest.fn()
-    const off = jest.fn()
+    const on: () => void = jest.fn()
+    const off: () => void = jest.fn()
     testSwitch.on(on)
     testSwitch.off(off)
     
@@ -119,13 +119,12 @@ describe("Switch", () => {
     
     expect(testSwitch.config.uniqueId).toEqual(uniqueId)
     expect(msgHandler).toHaveBeenCalledWith(
-      // testSwitch.config.configTopic, 
-      expect.stringContaining(name),
+      testSwitch.discoveryTopic, 
       expect.stringContaining(`"name":"${name}"`)
     )
   })
 
-  test("state retain", async () => {
+  test("state retain", () => {
     const name = _.camelCase(expect.getState().currentTestName)
     const stateTopic = `somecustomthing/switch/${name}/state`
 

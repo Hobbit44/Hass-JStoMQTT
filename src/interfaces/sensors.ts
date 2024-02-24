@@ -64,7 +64,7 @@ type SensorApparentPower = {
 
 type SensorAqi = {
   deviceClass: SensorDeviceClass.AQI,
-  unit: any,
+  unit: string,
 }
 
 enum AtmosphericPressureUnit {
@@ -171,7 +171,7 @@ type SensorDataSize = {
 
 type SensorDate = {
   deviceClass: SensorDeviceClass.DATE,
-  unit: any,
+  unit: string,
 }
 
 enum DistanceUnit {
@@ -222,7 +222,7 @@ type SensorEnergyStorage = {
 
 type SensorEnum = {
   deviceClass: SensorDeviceClass.ENUM,
-  unit: any,
+  unit: string,
 }
 
 enum FrequencyUnit {
@@ -287,7 +287,7 @@ type SensorMoisture = {
 
 type SensorMonetary = {
   deviceClass: SensorDeviceClass.MONETARY,
-  unit: any,
+  unit: string,
 }
 
 enum NitrogenDioxideUnit {
@@ -328,7 +328,7 @@ type SensorOzone = {
 
 type SensorPh = {
   deviceClass: SensorDeviceClass.PH,
-  unit: any,
+  unit: string,
 }
 
 enum Pm1Unit {
@@ -370,7 +370,7 @@ type SensorPower = {
 
 type SensorPowerFactor = {
   deviceClass: SensorDeviceClass.POWER_FACTOR,
-  unit: any,
+  unit: string,
 }
 
 enum PrecipitationUnit {
@@ -480,7 +480,7 @@ type SensorTemperature = {
 
 type SensorTimestamp = {
   deviceClass: SensorDeviceClass.TIMESTAMP,
-  unit: any,
+  unit: string,
 }
 
 enum VolatileOrganicCompoundsUnit {
@@ -574,7 +574,7 @@ type SensorWeight = {
 
 type SensorWindSpeed = {
   deviceClass: SensorDeviceClass.WIND_SPEED,
-  unit: any,
+  unit: string,
 }
 
 export type SensorType = 

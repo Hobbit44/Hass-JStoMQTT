@@ -19,25 +19,25 @@ afterEach(() => {
 
 describe("Binary Sensor", () => {
   test("On", () => {
-    const testSwitch = new BinarySensor(
+    const testSensor = new BinarySensor(
       client,
       _.camelCase(expect.getState().currentTestName),
     )
     
-    testSwitch.on()
+    testSensor.on()
   
-    expect(msgHandler).toHaveBeenCalledWith(testSwitch.config.stateTopic, IBinarySensorOptions.ON)
+    expect(msgHandler).toHaveBeenCalledWith(testSensor.config.stateTopic, IBinarySensorOptions.ON)
   })
 
   test("Off", () => {
-    const testSwitch = new BinarySensor(
+    const testSensor = new BinarySensor(
       client,
       _.camelCase(expect.getState().currentTestName),
     )
     
-    testSwitch.off()
+    testSensor.off()
   
-    expect(msgHandler).toHaveBeenCalledWith(testSwitch.config.stateTopic, IBinarySensorOptions.OFF)
+    expect(msgHandler).toHaveBeenCalledWith(testSensor.config.stateTopic, IBinarySensorOptions.OFF)
   })
 })
 

@@ -20,7 +20,7 @@ interface IHADeviceBase {
   viaDevice?: string;
 }
 
-type IHADevice = Required<IHADeviceBase, 'connections'> | Required<IHADeviceBase, 'identifiers'>;
+type IHADevice = Required<IHADeviceBase, "connections"> | Required<IHADeviceBase, "identifiers">;
 
 export type IHACommonConfig = {
   availablity?: IHAAvailability

@@ -1,10 +1,10 @@
 import { MqttClient } from "mqtt"
-import { Optional } from 'utility-types';
+import { Optional } from "utility-types";
 import { Base } from "./base"
 import { IHABinarySensorConfig, IBinarySensorOptions } from "../interfaces/binary_sensor"
 import { ClassTypes } from "../interfaces/common"
 
-export type IBinarySensorConfig = Optional<IHABinarySensorConfig, 'stateTopic'>
+export type IBinarySensorConfig = Optional<IHABinarySensorConfig, "stateTopic">
 
 
 export class BinarySensor extends Base {
@@ -14,9 +14,9 @@ export class BinarySensor extends Base {
       ClassTypes.BINARY_SENSOR,
       {
         name,
-        stateTopic: config.stateTopic || `jstomqtt/${name}_jstomqtt/state`,
+        stateTopic: config?.stateTopic || `jstomqtt/${name}_jstomqtt/state`,
         ...config,
-      }
+      },
     )
     
     this.name = name
@@ -25,7 +25,7 @@ export class BinarySensor extends Base {
     this.setupListener()
   }
   public readonly name: string
-  public config: IBinarySensorConfig;
+  public readonly config: IBinarySensorConfig;
   private _state: IBinarySensorOptions
 
   public get state (): IBinarySensorOptions {
@@ -37,7 +37,7 @@ export class BinarySensor extends Base {
     this.client.publish(
       this.config.stateTopic, 
       state,
-      { retain: true }
+      { retain: true },
     )
   }
 
