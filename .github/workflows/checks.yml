@@ -15,7 +15,7 @@ env:
   
 jobs:
   checks:
-    name: "Checks"
+    name: Checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
