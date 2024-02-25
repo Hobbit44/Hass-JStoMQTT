@@ -1,6 +1,6 @@
 # HA-JStoMQTT
 
-[![Check](https://github.com/Hobbit44/HA-JStoMQTT/actions/workflows/check.yml/badge.svg)](https://github.com/Hobbit44/HA-JStoMQTT/actions/workflows/check.yml)
+[![Checks](https://github.com/Hobbit44/HA-JStoMQTT/actions/workflows/checks.yml/badge.svg)](https://github.com/Hobbit44/HA-JStoMQTT/actions/workflows/checks.yml)
 
 This repository enables you to write Home Assistant entities in Javascript that can perform arbitrary operations or fetch statuses or values in a familiar language without having to use input booleans or additional helpers. 
 
