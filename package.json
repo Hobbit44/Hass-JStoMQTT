@@ -53,8 +53,17 @@
     "scope": "@hobbit44"
   },
   "release-it": {
+    "git": {
+      "commit": true,
+      "tag": true,
+      "push": true
+    },
     "github": {
-      "release": true
+      "release": true,
+      "autoGenerate": true
+    },
+    "npm": {
+      "publish": false
     }
   }
 }
