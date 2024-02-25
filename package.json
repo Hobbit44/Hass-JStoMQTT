@@ -13,7 +13,7 @@
     "lint:fix": "eslint --fix src",
     "test": "jest --maxWorkers=4",
     "prepare": "husky",
-    "release": "release-it"
+    "release": "release-it --ci"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
