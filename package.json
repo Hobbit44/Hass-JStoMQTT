@@ -13,7 +13,7 @@
     "lint:fix": "eslint --fix src",
     "test": "jest --maxWorkers=4",
     "prepare": "husky",
-    "release": "GITHUB_TOKEN=$(op read 'op://Personal/Github/Security/token') release-it"
+    "release": "GITHUB_TOKEN=$(op read 'op://Personal/Github/Security/token') release-it --ci"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
