@@ -7,10 +7,6 @@ on:
 permissions:
   contents: read
 
-
-env:
-  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -24,6 +20,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@hobbit44'
           cache: "yarn"
       - name: Install dependencies
         run: yarn install --immutable
@@ -35,4 +33,6 @@ jobs:
         run: yarn build
       - name: Publish
         run: yarn npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
