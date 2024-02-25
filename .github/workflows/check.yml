@@ -1,0 +1,34 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+env:
+  GITHUB_PACKAGES_TOKEN: ${{ secrets.OAUTH_GITHUB_TOKEN }}
+  
+jobs:
+  check:
+    name: "Check"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - name: Install
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - name: Build
+        run: yarn build
