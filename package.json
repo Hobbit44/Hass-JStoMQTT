@@ -1,10 +1,10 @@
 {
-  "name": "hass-jstomqtt",
-  "version": "0.0.1",
+  "name": "ha-jstomqtt",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
-    "url": "https://github.com/Hobbit44/Hass-JStoMQTT.git"
+    "url": "https://github.com/Hobbit44/HA-JStoMQTT.git"
   },
   "author": "Lumar",
   "license": "UNLICENSED",
