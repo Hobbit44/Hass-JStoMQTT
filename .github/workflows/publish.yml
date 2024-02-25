@@ -6,13 +6,12 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,6 +23,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@hobbit44'
           cache: "yarn"
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install dependencies
         run: yarn install --immutable
       - name: Lint
@@ -34,6 +34,4 @@ jobs:
         run: yarn build
       - name: Publish
         run: yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         

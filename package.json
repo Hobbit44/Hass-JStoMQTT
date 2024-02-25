@@ -1,9 +1,11 @@
 {
   "name": "hass-jstomqtt",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/Hobbit44/Hass-JStoMQTT.git",
+  "repository": {
+    "url": "https://github.com/Hobbit44/Hass-JStoMQTT.git"
+  },
   "author": "Lumar",
   "license": "UNLICENSED",
   "scripts": {
@@ -60,6 +62,7 @@
     },
     "github": {
       "release": true,
+      "releaseName": "v${version}",
       "autoGenerate": true
     },
     "npm": {
