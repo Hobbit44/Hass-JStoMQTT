@@ -1,4 +1,4 @@
-name: Check
+name: Checks
 
 on:
   push:
@@ -14,8 +14,8 @@ env:
   GITHUB_PACKAGES_TOKEN: ${{ secrets.OAUTH_GITHUB_TOKEN }}
   
 jobs:
-  check:
-    name: "Check"
+  checks:
+    name: "Checks"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

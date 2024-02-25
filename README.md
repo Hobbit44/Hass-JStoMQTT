@@ -1,5 +1,7 @@
 # HA-JStoMQTT
 
+[![Check](https://github.com/Hobbit44/HA-JStoMQTT/actions/workflows/check.yml/badge.svg)](https://github.com/Hobbit44/HA-JStoMQTT/actions/workflows/check.yml)
+
 This repository enables you to write Home Assistant entities in Javascript that can perform arbitrary operations or fetch statuses or values in a familiar language without having to use input booleans or additional helpers. 
 
 This library uses MQTT to provide the discovery data to Home Assistant whilst you provide handlers for the operations of the entities your trying to create. 
