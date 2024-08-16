@@ -5,7 +5,7 @@ import { IHASwitchConfig, ISwitchOptions } from "../interfaces/switch"
 import { ClassTypes } from "../interfaces/common"
 
 export type ISwitchConfig = Optional<IHASwitchConfig, "stateTopic"|"commandTopic">
-interface Ihandlers {
+export interface ISwitchHandlers {
   on: () => void,
   off: () => void,
 }
@@ -38,7 +38,7 @@ export class Switch extends Base {
     return this._state
   }
 
-  private handlers: Ihandlers = {
+  private handlers: ISwitchHandlers = {
     on: () => {},
     off: () => {},
   }

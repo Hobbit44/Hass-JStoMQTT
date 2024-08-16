@@ -27,6 +27,7 @@ describe("Binary Sensor", () => {
     testSensor.on()
   
     expect(msgHandler).toHaveBeenCalledWith(testSensor.config.stateTopic, IBinarySensorOptions.ON)
+    expect(testSensor.state).toBe(IBinarySensorOptions.ON)
   })
 
   test("Off", () => {
@@ -38,6 +39,7 @@ describe("Binary Sensor", () => {
     testSensor.off()
   
     expect(msgHandler).toHaveBeenCalledWith(testSensor.config.stateTopic, IBinarySensorOptions.OFF)
+    expect(testSensor.state).toBe(IBinarySensorOptions.OFF)
   })
 })
 

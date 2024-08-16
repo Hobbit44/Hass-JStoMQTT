@@ -138,5 +138,43 @@ describe("Switch", () => {
 
     expect(testSwitch.state).toEqual(ISwitchOptions.ON)
   })
+
+  test("handler error", () => {
+    const testSwitch = new Switch(
+      client,
+      _.camelCase(expect.getState().currentTestName),
+    )
+    
+    const on: () => void = jest.fn(() => {
+      throw new Error("ontest")
+    })
+    const off: () => void = jest.fn(() => {
+      throw new Error("offtest")
+    })
+    testSwitch.on(on)
+    testSwitch.off(off)
+    
+    expect(testSwitch.state).toEqual(ISwitchOptions.OFF)
+    client.publish(testSwitch.config.commandTopic, ISwitchOptions.ON)
+    expect(on).toHaveBeenCalledTimes(1)
+    expect(testSwitch.state).toEqual(ISwitchOptions.OFF)
+    client.publish(testSwitch.config.commandTopic, ISwitchOptions.OFF)
+    expect(off).toHaveBeenCalledTimes(1)
+    expect(testSwitch.state).toEqual(ISwitchOptions.OFF)
+  })
+
+  test("subscribe error", () => {
+    client.subscribe = jest.fn((_0: string, _1: {qos: number}, cb: (err?: Error) => void) => {
+      cb(new Error("test error"))
+    }) as unknown as MqttClient["subscribe"]
+    
+    expect(() => {
+      new Switch(
+        client,
+        _.camelCase(expect.getState().currentTestName),
+      )
+    }
+    ).toThrow(Error)
+  })
 })
 

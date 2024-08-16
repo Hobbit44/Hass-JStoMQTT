@@ -1,4 +1,16 @@
 {
   "testMatch": ["**/*.test.ts"],
-  "roots": ["<rootDir>/src"]
+  "roots": ["<rootDir>/src"],
+  "collectCoverage": true,
+  "collectCoverageFrom" : [
+    "src/**/*.ts"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": -10
+    }
+  }
 }

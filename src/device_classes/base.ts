@@ -7,11 +7,11 @@ import { ISwitchConfig } from "./switch";
 import { ClassTypes } from "../interfaces/common";
 import { IButtonConfig } from "./button";
 
-interface IListeners {
+export interface IListeners {
   [key: string]: (msg: string) => void
 }
 
-type IBaseConfig = ISwitchConfig | IBinarySensorConfig | IButtonConfig
+export type IBaseConfig = ISwitchConfig | IBinarySensorConfig | IButtonConfig
 
 export class Base {
   constructor(mqttClient: MqttClient, type: ClassTypes, config: IBaseConfig) {
@@ -63,6 +63,7 @@ export class Base {
       if(err) {
         this.logger.error(`Failed to sub to ${this.topic}`)
         this.logger.error(err)
+        throw err
       } else {
         this.logger.debug(`Subscribed to ${this.topic}`)
       }

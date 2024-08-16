@@ -6,11 +6,12 @@
   "repository": {
     "url": "https://github.com/Hobbit44/HA-JStoMQTT.git"
   },
-  "author": "Lumar",
+  "author": "Matt Robinson",
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
+    "doc": "typedoc src/index.ts",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
     "test": "jest --maxWorkers=4",
@@ -36,6 +37,7 @@
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
+    "typedoc": "^0.25.9",
     "typescript": "*",
     "typescript-eslint": "^7.0.2",
     "utility-types": "^3.11.0"

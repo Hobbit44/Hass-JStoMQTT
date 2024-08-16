@@ -6,7 +6,7 @@ import { IHAButtonConfig } from "src/interfaces/button";
 
 export type IButtonConfig = Optional<IHAButtonConfig, "commandTopic">
 
-interface Ihandlers {
+export interface IButtonHandlers {
   press: () => void,
 }
 
@@ -31,7 +31,7 @@ export class Button extends Base {
   public readonly name: string
   public config: IButtonConfig
 
-  private handlers: Ihandlers = {
+  private handlers: IButtonHandlers = {
     press: () => {},
   }
 
@@ -40,9 +40,7 @@ export class Button extends Base {
     if(msg == this.config.payloadPress || msg == "PRESS") {
       try {
         this.handlers.press()
-        this.logger.debug(
-          "Button pressed",
-          );
+        this.logger.debug("Button pressed")
       } catch (err) {
         this.logger.error("Error running press handler")
         this.logger.error(err)

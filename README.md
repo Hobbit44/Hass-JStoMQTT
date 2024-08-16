@@ -88,11 +88,12 @@ const customButton = new Button(client, "atestbutton", {
 
 #### Tasks
 
-- [ ] CI
+- [x] CI
 - [ ] Docs
   - [ ] API
   - [ ] Deployment
   - [ ] Development
+- [ ] Hass add-on
 
 #### Entity types
 
